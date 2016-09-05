@@ -1,3 +1,11 @@
-.button-section{
-	display:flex;
+.button-section,
+.item-container,
+.details-container {
+    display: flex;
+}
+#cat-list{
+	margin-right: 10px;
+}
+#cat-list ul li{
+	list-style: none;
 }
