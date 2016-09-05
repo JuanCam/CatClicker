@@ -3,16 +3,19 @@
     /*View definition*/
     w.catDetailView = w.views({
         el: document.getElementById('cat-details'),
-        template: '../../partials/catDetail.html'
+        template: 'catDetail.html'
     });
     w.catDetailView.init = function(html) {
-        this.refresh(html);
-        this.render();
-        this.el.addEventListener('click', clickCatImg)
+        var view = this;
+        this.tmplPath = w.octopus.tmplPath;
+        w.catDetailView.getTmpl().then(function(text) {
+            view.refresh(text);
+        });
     };
     w.catDetailView.render = function() {
         var data = w.octopus.getSelectedCat();
         this.el.innerHTML = this.build(data);
+        this.el.addEventListener('click', clickCatImg);
     };
 
     function clickCatImg(event) {

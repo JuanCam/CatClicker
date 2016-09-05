@@ -5,32 +5,32 @@
         cats: [{
             'id': 1,
             'name': 'Garfield',
-            'img': 'http://placekitten.com/g/200/300',
+            'img': 'http://placekitten.com/200/300',
             'clicks': 0
         }, {
             'id': 2,
             'name': 'Whiskers',
-            'img': 'http://placekitten.com/g/200/300',
+            'img': 'http://placekitten.com/400/300',
             'clicks': 0
         }, {
             'id': 3,
             'name': 'Bella',
-            'img': 'http://placekitten.com/g/200/300',
+            'img': 'http://placekitten.com/200/300',
             'clicks': 0
         }, {
             'id': 4,
             'name': 'Chloe',
-            'img': 'http://placekitten.com/g/200/300',
+            'img': 'http://placekitten.com/200/300',
             'clicks': 0
         }, {
             'id': 5,
             'name': 'Lucy',
-            'img': 'http://placekitten.com/g/200/300',
+            'img': 'http://placekitten.com/200/300',
             'clicks': 0
         }, {
             'id': 6,
             'name': 'Gizmo',
-            'img': 'http://placekitten.com/g/200/300',
+            'img': 'http://placekitten.com/200/300',
             'clicks': 0
         }]
     };
@@ -38,18 +38,30 @@
     w.octopus = {
         init: function() {
 
+            this.tmplPath = '../../partials/';
             w.catListView.init();
+            w.catDetailView.init();
+            w.adminView.init();
+        },
+        updateViews: {
+            details: function() {
+                w.catDetailView.render();
+            },
+            list: function() {
+                w.catListView.render();
+            },
+            admin: function() {
+                w.adminView.render();
+            },
         },
         selectCat: function(catData) {
 
             var catId = catData.id;
             this.setSelectedCat(catId);
-            w.catDetailView.getTmpl().then(function(text) {
-                var details = w.catDetailView;
-                w.catDetailView.init(text);
-            })
+            this.updateViews.details();
+            this.updateViews.admin();
         },
-        getSelectedCat: function(id) {
+        getSelectedCat: function() {
 
             return model.selectedCat;
         },
@@ -67,7 +79,8 @@
             var catId = catData.id;
             this.setSelectedCat(catId);
             model.selectedCat.clicks++;
-            w.catDetailView.render();
+            this.updateViews.details();
+            this.updateViews.admin();
         }
     }
     w.octopus.init();
