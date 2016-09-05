@@ -18,8 +18,8 @@
                     return response.text();
                 })
             },
-            build: function(rawHtml, data) {
-                var html = rawHtml;
+            build: function(data) {
+                var html = this.html;
                 for (var field in data) {
                     var regExp = new RegExp('[{]{2}[' + field + ']+(?=[}]{2})[}]{2}', 'g');
                     if (regExp.test(html)) {

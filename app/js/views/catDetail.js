@@ -6,13 +6,13 @@
         template: '../../partials/catDetail.html'
     });
     w.catDetailView.init = function(html) {
-    	this.refresh(html);
-    	this.render();
+        this.refresh(html);
+        this.render();
         this.el.addEventListener('click', clickCatImg)
     };
     w.catDetailView.render = function() {
-    	var data = w.octopus.getSelectedCat();
-        this.el.innerHTML = this.build(this.html, data);
+        var data = w.octopus.getSelectedCat();
+        this.el.innerHTML = this.build(data);
     };
 
     function clickCatImg(event) {

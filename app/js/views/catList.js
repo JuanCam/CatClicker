@@ -19,7 +19,7 @@
 
         function buildMarkup() {
             if (c < cats.length) {
-                this.el.innerHTML += this.build(this.html, cats[c]);
+                this.el.innerHTML += this.build(cats[c]);
                 this.el.addEventListener('click', clickCatItem);
                 c++;
                 return buildMarkup.call(this);
