@@ -20,6 +20,7 @@
         this.el.innerHTML = '';
 
         function buildMarkup() {
+            /*Build recursively the whole list*/
             if (c < cats.length) {
                 this.el.innerHTML += this.build(cats[c]);
                 this.el.addEventListener('click', clickCatItem);
