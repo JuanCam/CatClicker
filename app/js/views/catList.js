@@ -17,20 +17,11 @@
     w.catListView.render = function() {
         var c = 0;
         var cats = w.octopus.getCats();
-        this.el.innerHTML = '';
-
-        function buildMarkup() {
-            /*Build recursively the whole list*/
-            if (c < cats.length) {
-                this.el.innerHTML += this.build(cats[c]);
-                this.el.addEventListener('click', clickCatItem);
-                c++;
-                return buildMarkup.call(this);
-            } else {
-                return true;
-            }
-        }
-        buildMarkup.call(this);
+        this.el.innerHTML = this.build({
+            'Cats': cats,
+            'TitleList': 'Cat List'
+        });
+        this.el.addEventListener('click', clickCatItem);
     }
 
     function clickCatItem(event) {

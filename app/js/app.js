@@ -25,12 +25,17 @@
         }, {
             'id': 5,
             'name': 'Lucy',
-            'img': 'http://placekitten.com/200/300',
+            'img': 'http://placekitten.com/300/300',
             'clicks': 0
         }, {
             'id': 6,
             'name': 'Gizmo',
             'img': 'http://placekitten.com/200/300',
+            'clicks': 0
+        }, {
+            'id': 7,
+            'name': 'Fuzzy',
+            'img': 'http://placekitten.com/300/300',
             'clicks': 0
         }]
     };
@@ -42,17 +47,6 @@
             w.catListView.init();
             w.catDetailView.init();
             w.adminView.init();
-        },
-        updateViews: {
-            details: function() {
-                w.catDetailView.render();
-            },
-            list: function() {
-                w.catListView.render();
-            },
-            admin: function() {
-                w.adminView.render();
-            },
         },
         selectCat: function(catData) {
 
@@ -81,6 +75,17 @@
             model.selectedCat.clicks++;
             this.updateViews.details();
             this.updateViews.admin();
+        },
+        updateViews: {
+            details: function() {
+                w.catDetailView.render();
+            },
+            list: function() {
+                w.catListView.render();
+            },
+            admin: function() {
+                w.adminView.render();
+            },
         }
     }
     w.octopus.init();

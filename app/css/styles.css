@@ -1,3 +1,62 @@
-.button-section{
-	display:flex;
+body {
+    font-family: Helvetica, Verdana, sans-serif;
+}
+
+button {
+    cursor: pointer;
+}
+
+.button-section,
+.item-container,
+.details-container {
+    display: flex;
+}
+
+#cat-list {
+    margin-right: 10px;
+}
+
+#cat-list ul li {
+    list-style: none;
+    font-weight: 200;
+    font-size: 17px;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+    transition: 0.2s;
+    padding: 0 12px 0 12px;
+}
+
+#cat-list ul li:hover {
+    background-color: #ccc;
+    color: #fff;
+}
+
+.left-panel button {
+    margin-left: 40px;
+    padding: 7px;
+    background-color: #60b044;
+    color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+button.save-btn,
+button.cancel-btn {
+    padding: 10px;
+    color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+button.save-btn {
+    background-color: #ccc;
+}
+
+button.cancel-btn {
+    background-color: red;
+    margin-right: 10px;
+}
+
+img.cat-image {
+    cursor: pointer;
 }
